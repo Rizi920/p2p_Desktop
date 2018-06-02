@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"  prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111"  fx:controller="p2p.FXMLDocumentController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="768.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <TextField layoutX="109.0" layoutY="2.0" prefHeight="25.0" prefWidth="121.0" fx:id="remoteIp" >
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Label layoutX="14.0" layoutY="6.0" text="Remote Address" />
+            <Label layoutX="232.0" layoutY="6.0" text=":" />
+            <TextField layoutX="238.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0" fx:id="remotePort" >
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Button layoutX="294.0" layoutY="2.0" mnemonicParsing="false" text="Connect" onAction="#connectBtnClick"  />
+            <Label layoutX="384.0" layoutY="6.0" text="My Address" fx:id="myAddress" />
+            <SplitPane dividerPositions="0.29797979797979796" layoutX="14.0" layoutY="51.0" prefHeight="507.0" prefWidth="738.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Connections:" />
+                        <VBox layoutX="14.0" layoutY="43.0" prefHeight="438.0" prefWidth="185.0" fx:id="vbox" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <TextArea layoutX="14.0" layoutY="458.0" prefHeight="33.0" prefWidth="404.0" fx:id="textArea" />
+                        <Button disable="true" layoutX="431.0" layoutY="458.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="69.0" text="Send" fx:id="buttonSend" onAction="#sendMessage"  />
+                        <Button disable="true" layoutX="466.0" layoutY="14.0" mnemonicParsing="false" text="Call" fx:id="buttonCall" onAction="#call" />
+                        <Button disable="true" layoutX="383.0" layoutY="14.0" mnemonicParsing="false" text="Attach file" fx:id="buttonAttachFile" onAction="#sendFile" />
+                        <javafx.scene.control.ScrollPane fx:id="scrollpane" layoutX="15.0" layoutY="47.0" >
+                            <content>
+                              <VBox prefHeight="396.0" prefWidth="485.0" fx:id="messagebox" />
+                           </content>
+                        </javafx.scene.control.ScrollPane > 
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
